@@ -1,23 +1,21 @@
 --load requires
 require 'functions'
+require 'hero'
 
 --función callback de carga inicial
 function love.load()
-  
+  createHeroe();
 end
 
 -- función callback de dibujo
 function love.draw()
-
-	 love.graphics.print('Hello World!', 400, 300)
-   
+  local heroe = getHeroe()
+	 love.graphics.print("Hello "..heroe.nombre, 350, 300)   
 end
 
 --funcion callback para refrescar la pantalla
 function love.update(dt)   
-  	if gameIsPaused then return end 
-    
-    
+  	if gameIsPaused then return end  
   end
 
 --función callback para el foco

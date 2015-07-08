@@ -4,7 +4,7 @@ function love.conf(t)
     t.console = false                  -- Attach a console (boolean, Windows only)
  
     t.window.title = "First Löve"        -- The window title (string)
-    t.window.icon = "resource/icon.png"         -- Filepath to an image to use as the window's icon (string)
+    t.window.icon = "resource/icons/icon.png"         -- Filepath to an image to use as the window's icon (string)
     t.window.width = 800               -- The window width (number)
     t.window.height = 600              -- The window height (number)
     t.window.borderless = false        -- Remove all border visuals from the window (boolean)
