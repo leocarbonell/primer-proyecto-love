@@ -8,6 +8,8 @@ end
 
 -- función callback de dibujo
 function love.draw()
+
+	--hello world
    
 end
 
