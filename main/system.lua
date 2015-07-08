@@ -1,7 +1,7 @@
 --variables del sistema del juego
-local system
+local system = {}
 
-function createDungeon()
+function createSystem()
   system.dungeon=1
   system.room=1
 end
