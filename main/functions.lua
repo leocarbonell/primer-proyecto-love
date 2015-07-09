@@ -6,6 +6,11 @@ function love.keypressed(k)
    end
 end
 
+function printBack()
+  love.graphics.setColor(255,255,255,255) --color del rectángulo
+  love.graphics.rectangle("fill", 0, 0, 800, 600 ) --dibujo el rectángulo
+end
+
 function printVida(data)  
   love.graphics.setColor(255,46,18,255) --color del rectángulo
   love.graphics.rectangle("fill", 10, 10, 64, 64 ) --dibujo el rectángulo
@@ -51,20 +56,23 @@ function printArmadura(data)
   --love.graphics.print("EXP. "..data, 168, 32) --escribo la nivel:[nivel]  
 end
 function printDungeon(data)  
-  love.graphics.setColor(0,193,63,255) --color del rectángulo
-  love.graphics.rectangle("fill", 390, 10, 64, 64 ) --dibujo el rectángulo
+  love.graphics.setColor(255,46,18,255) --color del rectángulo
+  love.graphics.rectangle("fill", 662, 10, 128, 64 ) --dibujo el rectángulo
   local font = love.graphics.newFont("resource/fonts/Metro Normal.ttf", 20) --declaro la fuente y el tamaño  
   love.graphics.setFont(font) --cargo la fuente
   love.graphics.setColor(255,255,255,255) --aplico el color al texto
-  love.graphics.print("MAZMORRA.", 402, 12) --escribo la nivel:[nivel] 
-  love.graphics.print(data, 402, 24) --escribo la nivel:[nivel] 
+  love.graphics.print("MAZMORRA. "..data, 672, 32) --escribo la nivel:[nivel]  
 end
 function printRoom(data)  
-  love.graphics.setColor(0,193,63,255) --color del rectángulo
-  love.graphics.rectangle("fill", 474, 10, 64, 64 ) --dibujo el rectángulo
+  love.graphics.setColor(255,152,29,255) --color del rectángulo
+  love.graphics.rectangle("fill", 662, 84, 128, 64 ) --dibujo el rectángulo
   local font = love.graphics.newFont("resource/fonts/Metro Normal.ttf", 20) --declaro la fuente y el tamaño  
   love.graphics.setFont(font) --cargo la fuente
   love.graphics.setColor(255,255,255,255) --aplico el color al texto
-  love.graphics.print("CUARTO. "..data, 486, 32) --escribo la nivel:[nivel]  
+  love.graphics.print("CUARTO. "..data, 672, 106) --escribo la nivel:[nivel]  
+end
+function printHeroe(data)
+  love.graphics.setColor(0,0,0,255)
+  love.graphics.print("Hello "..data, 350, 300)   
 end
 

@@ -9,6 +9,8 @@ function createHeroe()
   heroe.experiencia = 0 --experiencia actual en la que se encuentra el heroe.
   heroe.arma = {"puño", 1} --arma del jugador.
   heroe.armadura = {"camisa ordinaria", 1} --armadura del jugador 
+  heroe.habilidad = {{"fuerza", 0},{"resistencia", 0},{"agilidad", 0},{"carga",0},{"suerte", 0}}
+  heroe.item = {{"fresa",3}}
 end
 
 function getHeroe()
@@ -43,5 +45,12 @@ function setArmadura(data0, data1)
   heroe.armadura[0]= data0
   heroe.armadura[1]= data1
 end
+function setHabilidad(data0,data1)
+  --recorrer con for...
+end
+function setItem(data0,data1)
+  --recorrer con for...
+end
+
 
   

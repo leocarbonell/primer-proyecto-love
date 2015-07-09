@@ -11,16 +11,18 @@ end
 
 -- función callback de dibujo
 function love.draw()
+  
   local heroe = getHeroe()
   local system = getSystem()
-	 love.graphics.print("Hello "..heroe.nombre, 350, 300)   
-   printVida(heroe.vida)
-   printNivel(heroe.nivel)
-   printExperiencia(heroe.experiencia)
-   printArma(heroe.arma[0])
-   printArmadura(heroe.armadura[0])
-   printDungeon(system.dungeon)
-   printRoom(system.room)
+  printBack()  
+  printVida(heroe.vida)
+  printNivel(heroe.nivel)
+  printExperiencia(heroe.experiencia)
+  printArma(heroe.arma[0])
+  printArmadura(heroe.armadura[0])
+  printDungeon(system.dungeon)
+  printRoom(system.room)
+  printHeroe(heroe.nombre)
 end
 
 --funcion callback para refrescar la pantalla
