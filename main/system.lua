@@ -2,7 +2,9 @@
 local system = {}
 
 function createSystem()
+  system.world_name={"El bosque" , "La cueva" , "La mazmorra" , "La Fortaleza"}
   system.dungeon=1
+  system.subdungeon=1
   system.room=1
 end
 

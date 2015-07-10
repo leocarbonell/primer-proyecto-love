@@ -9,8 +9,8 @@ function createHeroe()
   heroe.nivel = 1 --nivel en el que se encuentra el heroe.  
   heroe.experiencia_maxima = 10 --experiencia máxima para que el heroe suba de nivel.
   heroe.experiencia = 0 --experiencia actual en la que se encuentra el heroe.
-  heroe.arma = {"puño", 1} --arma del jugador.
-  heroe.armadura = {"camisa ordinaria", 1} --armadura del jugador 
+  heroe.arma = {"arma", 1} --arma del jugador.
+  heroe.armadura = {"armadura", 1} --armadura del jugador 
   heroe.habilidad = {{"fuerza", 0},{"resistencia", 0},{"agilidad", 0},{"carga",0},{"suerte", 0}}
   heroe.item = {{"alimento",10}}
 end

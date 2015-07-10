@@ -1,9 +1,9 @@
 function love.conf(t)
-    t.identity = "first löve proyect"                   -- The name of the save directory (string)
+    t.identity = "metroDark"                   -- The name of the save directory (string)
     t.version = "0.9.2"                -- The LÖVE version this game was made for (string)
     t.console = false                  -- Attach a console (boolean, Windows only)
  
-    t.window.title = "First Löve"        -- The window title (string)
+    t.window.title = "Dungeon Metro 0.0.10"        -- The window title (string)
     t.window.icon = "resource/icons/icon.png"         -- Filepath to an image to use as the window's icon (string)
     t.window.width = 800               -- The window width (number)
     t.window.height = 600              -- The window height (number)
