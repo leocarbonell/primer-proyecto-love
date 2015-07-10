@@ -3,14 +3,16 @@ local heroe = {}
 
 function createHeroe()
   heroe.nombre = "Max"
-  heroe.vida = 3 --vida del heroe.
-  heroe.nivel = 1 --nivel en el que se encuentra el heroe.
+  heroe.salud = 10 --vida del heroe.
+  heroe.alimento = 10 -- alimento del heroe
+  heroe.dinero = 0 --dinero del heroe
+  heroe.nivel = 1 --nivel en el que se encuentra el heroe.  
   heroe.experiencia_maxima = 10 --experiencia máxima para que el heroe suba de nivel.
   heroe.experiencia = 0 --experiencia actual en la que se encuentra el heroe.
   heroe.arma = {"puño", 1} --arma del jugador.
   heroe.armadura = {"camisa ordinaria", 1} --armadura del jugador 
   heroe.habilidad = {{"fuerza", 0},{"resistencia", 0},{"agilidad", 0},{"carga",0},{"suerte", 0}}
-  heroe.item = {{"fresa",3}}
+  heroe.item = {{"alimento",10}}
 end
 
 function getHeroe()
@@ -19,11 +21,23 @@ end
 function setNombre(data)
   heroe.nombre = data
 end
-function setVida(data)
-  heroe.vida = data
+function setSalud(data)
+  heroe.salud = data
 end
-function incrementVida(data)
-  heroe.vida = heroe.vida + data
+function incrementSalud(data)
+  heroe.salud = heroe.salud + data
+end
+function setAlimento(data)
+  heroe.alimento = data
+end
+function incrementAlimento(data)
+  heroe.alimento = heroe.alimento + data
+end
+function setDinero(data)
+  heroe.dinero = data
+end
+function incrementDinero(data)
+  heroe.dinero = heroe.dinero + data
 end
 function setNivel(data)
   heroe.nivel = data
