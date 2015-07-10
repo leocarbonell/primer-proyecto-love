@@ -160,6 +160,46 @@ function printSuerte(data0, data1, data2) --imprimir habilidad de suerte
   love.graphics.print(data0, 768, 351) --escribo (nivel)
 end
 
+function printAlimento(data0, data1, data2) --imprimir item alimento
+  love.graphics.setColor(29,29,29,50) --color del rectángulo
+  love.graphics.rectangle("fill", 10, 526, 96, 32 ) --dibujo el rectángulo
+  love.graphics.setColor(255,255,255,255) --reinicio color a blanco
+  love.graphics.draw(data1, data2, 10, 526) --dibujo quad
+  local font = love.graphics.newFont("resource/fonts/Metro Normal.ttf", 26) --declaro la fuente y el tamaño  
+  love.graphics.setFont(font) --cargo la fuente
+  love.graphics.setColor(0,0,0,255) --aplico el color al texto  
+  love.graphics.print(data0, 84, 529) --escribo (nivel)
+end
+
+function printCorazon(data0, data1, data2)
+  love.graphics.setColor(29,29,29,50) --color del rectángulo
+  love.graphics.rectangle("fill", 116, 526, 96, 32 ) --dibujo el rectángulo
+  love.graphics.setColor(255,255,255,255) --reinicio color a blanco
+  love.graphics.draw(data1, data2, 116, 526) --dibujo quad
+  local font = love.graphics.newFont("resource/fonts/Metro Normal.ttf", 26) --declaro la fuente y el tamaño  
+  love.graphics.setFont(font) --cargo la fuente
+  love.graphics.setColor(0,0,0,255) --aplico el color al texto  
+  love.graphics.print(data0, 190, 529) --escribo (nivel)
+end
+
+function printLlave(data0, data1, data2)
+  love.graphics.setColor(29,29,29,50) --color del rectángulo
+  love.graphics.rectangle("fill", 222, 526, 96, 32 ) --dibujo el rectángulo
+  love.graphics.setColor(255,255,255,255) --reinicio color a blanco
+  love.graphics.draw(data1, data2, 222, 526) --dibujo quad
+  local font = love.graphics.newFont("resource/fonts/Metro Normal.ttf", 26) --declaro la fuente y el tamaño  
+  love.graphics.setFont(font) --cargo la fuente
+  love.graphics.setColor(0,0,0,255) --aplico el color al texto  
+  love.graphics.print(data0, 295, 529) --escribo (nivel)
+end
+
+function printMapa(data0, data1, data2)
+  love.graphics.setColor(29,29,29,50) --color del rectángulo
+  love.graphics.rectangle("fill", 726, 526, 96, 32 ) --dibujo el rectángulo
+  love.graphics.setColor(255,255,255,255) --reinicio color a blanco
+  love.graphics.draw(data1, data2, 726, 526) --dibujo quad
+end
+
 function printHeroe(data)
   love.graphics.setColor(0,0,0,255)
   love.graphics.print("Hello "..data, 350, 300)   

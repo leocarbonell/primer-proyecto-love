@@ -12,7 +12,7 @@ function createHeroe()
   heroe.arma = {"arma", 1} --arma del jugador.
   heroe.armadura = {"armadura", 1} --armadura del jugador 
   heroe.habilidad = {{"fuerza", 0},{"resistencia", 0},{"agilidad", 0},{"carga",0},{"suerte", 0}}
-  heroe.item = {{"alimento",10}}
+  heroe.item = {{"alimento",10}, {"corazon",0}, {"llave", 0}}
 end
 
 function getHeroe()
