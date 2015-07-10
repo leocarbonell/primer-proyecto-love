@@ -9,7 +9,7 @@ end
 function printBackground(data)--imprimir el background
   love.graphics.setColor(255,255,255,255) --color del rectángulo
   love.graphics.rectangle("fill", 0, 0, 800, 600 ) --dibujo el rectángulo
-  love.graphics.setColor(255,255,255,200) --color del rectángulo
+  love.graphics.setColor(255,255,255,250) --color del rectángulo
   love.graphics.draw(data, 0, 0)
 end
 
@@ -105,22 +105,61 @@ function printWorldName(data0, data1, data2) --imprimir información del mapa(no
   love.graphics.print(data0.." ("..data1.."-"..data2..")", 672, 12) --escribo (nivel)
 end
 
-function printDungeon(data)  
-  love.graphics.setColor(255,46,18,255) --color del rectángulo
-  love.graphics.rectangle("fill", 662, 10, 128, 64 ) --dibujo el rectángulo
-  local font = love.graphics.newFont("resource/fonts/Metro Normal.ttf", 20) --declaro la fuente y el tamaño  
+function printAtaque(data0, data1, data2) --imprimir habilidad de ataque
+  love.graphics.setColor(29,29,29,50) --color del rectángulo
+  love.graphics.rectangle("fill", 694, 52, 96, 32 ) --dibujo el rectángulo
+  love.graphics.setColor(255,255,255,255) --reinicio color a blanco
+  love.graphics.draw(data1, data2, 694, 52) --dibujo quad
+  local font = love.graphics.newFont("resource/fonts/Metro Normal.ttf", 26) --declaro la fuente y el tamaño  
   love.graphics.setFont(font) --cargo la fuente
-  love.graphics.setColor(255,255,255,255) --aplico el color al texto
-  love.graphics.print("MAZMORRA. "..data, 672, 32) --escribo la nivel:[nivel]  
+  love.graphics.setColor(0,0,0,255) --aplico el color al texto  
+  love.graphics.print(data0, 768, 55) --escribo (nivel) 
 end
-function printRoom(data)  
-  love.graphics.setColor(255,152,29,255) --color del rectángulo
-  love.graphics.rectangle("fill", 662, 84, 128, 64 ) --dibujo el rectángulo
-  local font = love.graphics.newFont("resource/fonts/Metro Normal.ttf", 20) --declaro la fuente y el tamaño  
+
+function printResitencia(data0, data1, data2) --imprimir habilidad de resistencia
+  love.graphics.setColor(29,29,29,50) --color del rectángulo
+  love.graphics.rectangle("fill", 694, 126, 96, 32 ) --dibujo el rectángulo
+  love.graphics.setColor(255,255,255,255) --reinicio color a blanco
+  love.graphics.draw(data1, data2, 694, 126) --dibujo quad
+  local font = love.graphics.newFont("resource/fonts/Metro Normal.ttf", 26) --declaro la fuente y el tamaño  
   love.graphics.setFont(font) --cargo la fuente
-  love.graphics.setColor(255,255,255,255) --aplico el color al texto
-  love.graphics.print("CUARTO. "..data, 672, 106) --escribo la nivel:[nivel]  
+  love.graphics.setColor(0,0,0,255) --aplico el color al texto  
+  love.graphics.print(data0, 768, 129) --escribo (nivel)
 end
+
+function printAgilidad(data0, data1, data2) --imprimir habilidad de agilidad
+  love.graphics.setColor(29,29,29,50) --color del rectángulo
+  love.graphics.rectangle("fill", 694, 200, 96, 32 ) --dibujo el rectángulo
+  love.graphics.setColor(255,255,255,255) --reinicio color a blanco
+  love.graphics.draw(data1, data2, 694, 200) --dibujo quad
+  local font = love.graphics.newFont("resource/fonts/Metro Normal.ttf", 26) --declaro la fuente y el tamaño  
+  love.graphics.setFont(font) --cargo la fuente
+  love.graphics.setColor(0,0,0,255) --aplico el color al texto  
+  love.graphics.print(data0, 768, 203) --escribo (nivel)
+end
+
+function printCarga(data0, data1, data2) --imprimir habilidad de carga
+  love.graphics.setColor(29,29,29,50) --color del rectángulo
+  love.graphics.rectangle("fill", 694, 274, 96, 32 ) --dibujo el rectángulo
+  love.graphics.setColor(255,255,255,255) --reinicio color a blanco
+  love.graphics.draw(data1, data2, 694, 274) --dibujo quad
+  local font = love.graphics.newFont("resource/fonts/Metro Normal.ttf", 26) --declaro la fuente y el tamaño  
+  love.graphics.setFont(font) --cargo la fuente
+  love.graphics.setColor(0,0,0,255) --aplico el color al texto  
+  love.graphics.print(data0, 768, 277) --escribo (nivel)  
+end
+
+function printSuerte(data0, data1, data2) --imprimir habilidad de suerte
+  love.graphics.setColor(29,29,29,50) --color del rectángulo
+  love.graphics.rectangle("fill", 694, 348, 96, 32 ) --dibujo el rectángulo
+  love.graphics.setColor(255,255,255,255) --reinicio color a blanco
+  love.graphics.draw(data1, data2, 694, 348) --dibujo quad
+  local font = love.graphics.newFont("resource/fonts/Metro Normal.ttf", 26) --declaro la fuente y el tamaño  
+  love.graphics.setFont(font) --cargo la fuente
+  love.graphics.setColor(0,0,0,255) --aplico el color al texto  
+  love.graphics.print(data0, 768, 351) --escribo (nivel)
+end
+
 function printHeroe(data)
   love.graphics.setColor(0,0,0,255)
   love.graphics.print("Hello "..data, 350, 300)   
