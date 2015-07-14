@@ -1,61 +1,80 @@
---load requires
-require 'hero'
-require 'system'
-require 'draw-general'
---require 'draw-map'
---declare global local variables
---local background
---local mouse_img
---local iconset
---local mapa
-local heroe = getHeroe()  
-local system = getSystem() 
---función callback de carga inicial
+--load
+require "draw"
+local scene
+local timer_count
+local timer_count_max
+local images_loaded = {}
+local dungeon_name = {}
+local dungon_resolve
+local room
+--
+--
+--load
 function love.load()
-  love.mouse.setVisible(false) -- make default mouse invisible    
-  --background = love.graphics.newImage('resource/background/_1.png') -- cargar imagen de fondo
-  --iconset = love.graphics.newImage('resource/sets/icon_set.png') --cargar playerset
-  --mapa = love.graphics.newImage('resource/sets/mapa.png')  
+  room = 0
+  dungon_resolve = false
+  love.mouse.setVisible(false)
+  images_loaded[1] = love.graphics.newImage("resource/icons/mouse.png")
+  images_loaded[2] = love.graphics.newImage("resource/sets/icon_set.png")
+  images_loaded[3] = love.graphics.newImage("resource/background/sponsor1.png")
+  images_loaded[4] = love.graphics.newImage("resource/background/sponsor2.png")
+  images_loaded[5] = love.graphics.newImage("resource/background/title.png")
+  images_loaded[6] = love.graphics.newImage("resource/background/valle1.png")
+  images_loaded[7] = love.graphics.newImage("resource/background/valle2.png")
+  dungeon_name[0] = "valle"  
+  scene = 1
+  timer_count=0
+  timer_count_max=5  
 end
-
--- función callback de dibujo
-function love.draw()
-  drawScreen(system.paso, system.paso_time)   
-  --printBackground(background)
-  --printIconset(iconset)
-  --heroe.salud = heroe.salud
-  --printAtributos(heroe.salud, heroe.habilidad[2][2], heroe.alimento, heroe.dinero, heroe.nivel, heroe.experiencia, heroe.arma[2], heroe.armadura[2])
-  --printWorldName(system.world_name[system.dungeon], system.dungeon, system.subdungeon)
-  --printHabilidades(heroe.habilidad[1][2], heroe.habilidad[2][2], heroe.habilidad[3][2], heroe.habilidad[4][2], heroe.habilidad[5][2])
-  --printItem(heroe.item[1][2], heroe.item[2][2])
-  --printMapa(mapa)  
-  --printHeroe(heroe.nombre)
-  --printMouse(mouse_img)
+--
+--
+--update
+function love.update(dt)
+  if scene == 1 or scene == 2 then
+    timer_count = timer_count+dt
+    if timer_count >= timer_count_max then      
+      timer_count =0
+      scene = scene + 1      
+    end
+  end    
 end
-function love.mousepressed(x, y, button)
-   --if button == 'l' then
-      --imgx = x -- move image to where mouse clicked
-      --imgy = y
-   --end
-end
---funcion callback para refrescar la pantalla
-function love.update(dt)    
-  	if gameIsPaused then return end    
-    if system.paso == 1 or system.paso ==2 then
-      system.paso_time= system.paso_time + dt
-      if system.paso_time_max <= system.paso_time then
-        system.paso_time = 0
-        system.paso = system.paso + 1
-      end      
+--
+--
+--draw
+function love.draw()    
+  printBackground(images_loaded[scene+2])
+  if(scene > 3) then
+    if(dungon_resolve == false) then
+      printIconset(images_loaded[2])
     end    
-  end
---función callback para el foco
+  end  
+  printMouse(images_loaded[1])
+  
+end
+--
+--
+--key presses
+function love.keypressed(key, unicode)
+   if key == 'b' then
+      text = "La tecla B ha sido presionada."
+   elseif key == 'a' then
+      a_down = true
+   end
+end
+--
+--
+--mouse pressed
+function love.mousepressed(x, y, button)  
+end
+--
+--
+--focus
 function love.focus(f)
   gameIsPaused = not f 
 end
-
---función callback para quitar el juego
+--
+--
+--quit
 function love.quit()
-  --love.graphics.print("Gracias por jugar! Vuelve pronto!", 400, 500)
 end
 
