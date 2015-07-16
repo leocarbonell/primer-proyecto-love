@@ -1,80 +1,75 @@
---load
-require "draw"
-local scene
-local timer_count
-local timer_count_max
-local images_loaded = {}
-local dungeon_name = {}
-local dungon_resolve
-local room
+require "assets.present"
+require "assets.history1"
+require "assets.level1"
+require "assets.player"
+require "assets.draw" 
+local mouse -- save the mouse graphics
+font={} -- save the font
 --
 --
---load
+-- love.load
 function love.load()
-  room = 0
-  dungon_resolve = false
-  love.mouse.setVisible(false)
-  images_loaded[1] = love.graphics.newImage("resource/icons/mouse.png")
-  images_loaded[2] = love.graphics.newImage("resource/sets/icon_set.png")
-  images_loaded[3] = love.graphics.newImage("resource/background/sponsor1.png")
-  images_loaded[4] = love.graphics.newImage("resource/background/sponsor2.png")
-  images_loaded[5] = love.graphics.newImage("resource/background/title.png")
-  images_loaded[6] = love.graphics.newImage("resource/background/valle1.png")
-  images_loaded[7] = love.graphics.newImage("resource/background/valle2.png")
-  dungeon_name[0] = "valle"  
-  scene = 1
-  timer_count=0
-  timer_count_max=5  
+  --global vars are step, player, help, font...
+  step = 1 --firs step of the game "Present" 
+  help = false -- boolean to show help content
+  loadPresent() -- load Present Data
+  loadHistory1() -- load history
+  loadLevel1() -- load Lvl 1 Data
+  createPlayer() --load Player Data
+  player = getPlayer() --inicializate the player
+  love.mouse.setVisible(false)  -- hiden mouse
+  mouse = love.graphics.newImage("resource/icons/mouse.png")  -- load mouse image
+  font[26]= love.graphics.newFont("resource/fonts/Metro Normal.ttf", 26) --declaro la fuente y el tamaño 
+  world_name={}
+  world_name[3] = "El valle"
 end
 --
 --
---update
+--love.update
 function love.update(dt)
-  if scene == 1 or scene == 2 then
-    timer_count = timer_count+dt
-    if timer_count >= timer_count_max then      
-      timer_count =0
-      scene = scene + 1      
-    end
-  end    
-end
---
---
---draw
-function love.draw()    
-  printBackground(images_loaded[scene+2])
-  if(scene > 3) then
-    if(dungon_resolve == false) then
-      printIconset(images_loaded[2])
-    end    
+  if step == 1 then
+    updatePresent(dt)
+  elseif step == 2 then
+    updateHistory1(dt)
+  elseif step == 3 then
+    updateLevel1(dt)
   end  
-  printMouse(images_loaded[1])
-  
 end
 --
 --
---key presses
-function love.keypressed(key, unicode)
-   if key == 'b' then
-      text = "La tecla B ha sido presionada."
-   elseif key == 'a' then
-      a_down = true
-   end
+--love.draw
+function love.draw()
+  if step == 1 then
+    drawPresent()
+  elseif step == 2 then
+    drawHistory1()
+  elseif step == 3 then
+    drawLevel1()
+  end  
+  printVersion("1.0.1")
+  printMouse(mouse)  
 end
 --
 --
---mouse pressed
-function love.mousepressed(x, y, button)  
+--love.keypressed
+function love.keypressed(key)
+  if key == 'escape' then
+    love.event.quit()
+  end
+  if step == 1 then
+    keyPressPresent(key)
+  elseif step == 2 then
+    keyPressHistory1(key)
+  elseif step == 3 then
+    keyPressLevel1(key)
+  end  
+end
+--love.quit
+function love.quit()  
 end
 --
 --
 --focus
-function love.focus(f)
-  gameIsPaused = not f 
+function love.focus(f)  
 end
 --
---
---quit
-function love.quit()
-end
-
