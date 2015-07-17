@@ -5,7 +5,7 @@ local images_loaded = {}
 --load
 function loadHistory1()
   frame = 1
-  images_loaded[1] = love.graphics.newImage("resource/background/valle1.png")
+  images_loaded[1] = love.graphics.newImage("resource/background/history1_1.png")
 end
 --
 --
@@ -21,7 +21,7 @@ end
 --
 --
 --keypress
-function keyPressHistory1(key)
+function keyreleasedHistory1(key)
   if key == 'return' then    
       step = step + 1 
   end

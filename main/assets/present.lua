@@ -30,15 +30,16 @@ end
 --
 --draw
 function drawPresent()
-  printBackground(images_loaded[frame+1])  
+  printBackground(images_loaded[frame+1]) 
+  printVersion(version)
   if help == true then
     printHelp(images_loaded[1])
-  end 
+    end    
 end
 --
 --
 --keypress
-function keyPressPresent(key)
+function keyreleasedPresent(key)
    if key == 'h' and frame==3 then
      if help == false then
        help = true
